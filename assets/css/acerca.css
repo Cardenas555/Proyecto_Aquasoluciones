@@ -1,0 +1,204 @@
+/* Importa tipografía desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+  --color-accent: #007CF0;
+  --font-base: 'Montserrat', sans-serif;
+  --color-accent2: #e81616;
+}
+
+
+/* HEADER */
+header {
+  position: relative;
+}
+
+header.headera {
+  height: 85px;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+/* Contenedor de logo + menú */
+.cuadrologoa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  position: absolute;
+  width: 100%;
+
+}
+
+/* Logo */
+.logoa img {
+  width: 260px;
+  transition: transform 0.3s ease;
+}
+.logoa img:hover {
+  transform: scale(1.05);
+}
+
+.logo2 img {
+  width: 178px;
+  margin-right: -45px;
+
+}
+
+/* Menú */
+nav ul.menua {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: 100%;
+  margin-top: 20px;
+}
+
+nav ul.menua li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  position: relative;
+  margin-top: 50px;
+  transition: color 0.3s ease;
+}
+nav ul.menua li a::after {
+  content: '';
+  position: absolute;
+  right: 0; bottom: -6px;
+  width: 0; height: 3px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+nav ul.menua li a:hover::after,
+nav ul.menua li a.active::after {
+  width: 100%;
+}
+nav ul.menua li a:hover {
+  color: var(--color-accent);
+}
+
+nav ul.menua li.lol a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3B83BD;
+  position: relative;
+  margin-top: 50px;
+  transition: color 0.3s ease;
+}
+
+
+.acercade {
+    padding-top: 80px;
+}
+
+.contenido-izq{width:100%;
+    padding-right:15px;
+    padding-left:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.pad_izq {
+    padding-left: 0;
+}
+
+.col-md-8{-ms-flex:0 0 66.666667%;
+    flex:0 0 66.666667%;
+    max-width:66.666667%}
+
+.col-md-4{-ms-flex:0 0 33.333333%;
+    flex:0 0 33.333333%;
+    max-width:33.333333%}
+
+.col-md-8, .col-md-4{position:relative;
+    width:100%;
+    min-height:1px;
+    padding-right:15px;
+    padding-left:15px;
+  }
+
+
+  .anterior-acerca {
+    top: -50px;
+    right: 64%;
+    background-color: rgba(94, 94, 94, 0.818);
+    color: #dedede;
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+    min-height: 105px;
+  }  
+
+.siguiente-acerca{
+    top: -50px;
+    left: 45%;
+    background-color: rgba(94, 94, 94, 0.818);
+    color: #dedede;
+    font-size: 50px;
+    height: 50px;
+    width: 50px;
+    min-height: 105px;
+}
+
+.siguiente-acerca:hover {
+    background: #1659e8;
+    color: #fff;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    min-height: 105px;
+}
+
+.anterior-acerca:hover {
+    background: #1659e8;
+    color: #fff;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    min-height: 105px;
+}
+.siguiente-acerca:hover {
+    top: -50px;
+    left: 43%;
+  
+}
+
+.anterior-acerca:hover{
+    right: 62%;
+    top: -50px;
+}
+
+
+.titulo {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.titulo h2 {
+    font-size: 40px;
+     color: #1f1f1f;
+     line-height: 45px;
+     font-weight: bold;
+     padding: 0;
+    
+}
+
+.fila-a{display:-ms-flexbox;
+    display:flex;-ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    margin-right:-15px;
+    margin-left:-15px;
+    background: url(../imagenes/dark.jpg)
+}
+
+.d_flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
