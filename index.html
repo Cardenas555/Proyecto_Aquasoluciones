@@ -1,0 +1,173 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaSoluciones</title>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="assets/js/abririmg.js"></script>
+
+</head>
+
+<body>
+  <div class="Cargarpag">
+    <div class="cargar"><img src="assets/imagenes/loading.gif" alt="#"/></div>
+  </div>
+
+  <header>
+    <div class="cuadrologo">
+      <div class="head1">
+        <a href="index.html" class="logo">
+          <img src="assets/imagenes/logo2.png" alt="Logo AquaSoluciones">
+        </a>
+      </div>
+      <div class="head2">
+        <nav>
+          <ul class="menu">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="acerca.html">Nosotros</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <section class="contenedor">
+      <div class="hero">
+        <div class="carrusel">
+          <div class="apartado">
+            <h1> Aprende a ahorrar agua</h1>
+            <br><br><br>
+              <span>Existen muchas formas de reutilizar agua y no malgastar el líquido <br></span><br>
+              <a class="sabermas" href="https://www.youtube.com/watch?v=TOD_9kWu3bA" target ="_blank">Saber Más</a>
+          </div>
+          <div class="apartado">
+            <h1>Aprende a pagar tu factura</h1>
+            <br><br><br>
+            <span>Puedes salir de tu casa para ir a pagar al punto más cercano o desde la comodidad de tu casa puedes hacer y aquí te enseñamos cómo</span><br>
+            <a class="sabermas" href="https://www.youtube.com/watch?v=HikE0RBkOUk" target ="_blank">Saber más</a>
+          </div>
+          <div class="apartado">
+            <h1> Esta página fue construida por:</h1>
+            <span id="we"><br><br>Los estudiantes Daniel Alegría, Andrés Cárdenas y Cristian Miño de la Universidad de Nariño</span><br>
+            <h1 ><span id = "fecha"><b>Junio 2025</b></span></h1>
+          </div>
+        </div>
+        <button class="anterior">&#8249;</button>
+        <button class="siguiente">&#8250;</button>
+      </div>
+    </section>
+  </header>
+
+
+  <!-- acerca de nosotros -->
+  <div class="contenedor2">
+    <div class="texto">
+      <h2 id="estiloh2">Acerca de Nosotros</h2>
+      <p id="acerca">Somos una empresa de Servicios Públicos Domiciliarios, que se dedica a la producción integral del agua potable, manejo de redes de acueducto, alcantarillado y conservación del ambiente, satisfaciendo así las necesidades de nuestros usuarios y contribuyendo al mejoramiento de la calidad de vida de la comunidad.</p>
+      <a class="leermas" href="acerca.html">Leer más</a>
+    </div>
+    <div class="imagen">
+      <img src="assets/imagenes/acercadenos.jpeg" alt="#">
+    </div>
+  </div>
+
+  <!-- galeria -->
+<div class="contenedor4">
+  <h2 id="estiloh22" >Nuestras Instalaciones</h2>
+  <div class="fila">
+    <div class="apartado2">
+      <figure><img src="assets/imagenes/imagen1.png" alt="Imagen 1" onclick="abrirImagen(this)"></figure>
+    </div>
+    <div class="apartado2">
+      <figure><img src="assets/imagenes/imagen2.jpg" alt="Imagen 2" onclick="abrirImagen(this)"></figure>
+    </div>
+    <div class="apartado2">
+      <figure><img src="assets/imagenes/imagen3.jpg" alt="Imagen 3" onclick="abrirImagen(this)"></figure>
+    </div>
+  </div>
+  <div class="fila">
+    <div class="apartado2">
+      <figure><img src="assets/imagenes/imagen4.jpg" alt="Imagen 4" onclick="abrirImagen(this)"></figure>
+    </div>
+    <div class="apartado2">
+      <figure><img src="assets/imagenes/imagen5.jpg" alt="Imagen 5" onclick="abrirImagen(this)"></figure>
+    </div>
+    <div class="apartado2">
+      <figure><img src="assets/imagenes/imagen6.jpg" alt="Imagen 6" onclick="abrirImagen(this)"></figure>
+    </div>
+  </div>
+</div>
+
+  <!-- contacto -->
+  <div class="contenedor3">
+    <div class="info-contacto">
+        <h2 id="contactos">Contáctanos</h2>
+        <form action="/enviar_formulario" method="post">
+
+            <input placeholder="Nombre" type="text" id="nombre" name="nombre" required>
+
+            <input placeholder="Correo electronico" type="email" id="correo" name="correo" required>
+
+            <input placeholder="Telefono celular" type="tel" id="celular" name="celular" required>
+
+            <textarea placeholder="Digite su mensaje" id="mensaje" name="mensaje" required></textarea>
+        </form>
+        <input type="enviar" value="Enviar">
+    </div>
+    <div class="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15957.612052181728!2d-77.6641593!3d0.8267032!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e29690664b5df21%3A0xd3f52e5a3f11a7be!2sempobando!5e0!3m2!1ses!2sco!4v1700519807305!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <div class="contenido">
+      <div class="redes_sociales">
+        <h3>Redes Sociales</h3>
+        <ul class="iconos_redes">
+          <li><a  target = "_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a target = "_blank">  <i class="fab fa-twitter"></i></a></li>
+          <li><a target = "_blank"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+        <p class="p1fo">Adjuntamos las redes
+          sociales para que
+          puedan hacer un mejor
+          seguimientos de nuestras
+          actividades y nuestros
+          anuncions importantes.
+       </p>
+      </div>
+      <div class="observacion">
+        <h3>Observación</h3>
+        <p  class="p1fo">La página resultante
+          surge a partir de la idea
+          de realizar una maqueta relacionada con
+          la página oficial de
+          la empresa de tratamiento de aguas
+          de la ciudad local y describir sus servicios
+          en la página web.
+       </p>
+      </div>
+      <div class="informacion">
+        <h3>Información</h3>
+        <ul class="link_menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="views/acerca.html">Acerca de nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+        </ul>
+      </div>
+      <div class="nuestro_diseno">
+        <h3>Nuestro Diseño</h3>
+        <p  class="p1fo">Para este diseño nos
+          hemos inspirado en plantillas y archivos auxiliares
+          con los que se venian trabajando
+          en el transcurso de la carrera
+          junto con las investigaciones realizadas
+          para aplicarlas en este proyecto.
+          </p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/dise.js"></script>
+</body>
+</html>
