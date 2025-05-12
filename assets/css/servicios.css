@@ -1,0 +1,212 @@
+/* Importa tipografía desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+  --color-accent: #007CF0;
+  --font-base: 'Montserrat', sans-serif;
+  --color-accent2: #000000;
+}
+
+
+/* HEADER */
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+header.headera {
+  height: 85px;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+/* Contenedor de logo + menú */
+.cuadrologoa {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  position: absolute;
+  width: 100%;
+
+}
+
+/* Logo */
+.logoa img {
+  width: 260px;
+  transition: transform 0.3s ease;
+}
+.logoa img:hover {
+  transform: scale(1.05);
+}
+
+.logo2 img {
+  width: 178px;
+  margin-right: -45px;
+
+}
+
+/* Menú */
+nav ul.menua {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: 60%;
+  margin-top: 20px;
+}
+
+nav ul.menua li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  position: relative;
+  margin-top: 50px;
+  transition: color 0.3s ease;
+}
+nav ul.menua li a::after {
+  content: '';
+  position: absolute;
+  right: 0; bottom: -6px;
+  width: 0; height: 3px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+nav ul.menua li a:hover::after,
+nav ul.menua li a.active::after {
+  width: 100%;
+}
+nav ul.menua li a:hover {
+  color: var(--color-accent);
+}
+
+nav ul.menua li.lol a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3B83BD;
+  position: relative;
+  margin-top: 50px;
+  transition: color 0.3s ease;
+}
+
+nav ul.menua li.lol a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 3px;
+  background: var(--color-accent2);
+  transition: width 0.3s ease;
+}
+
+nav ul.menua li.lol a:hover::after,
+nav ul.menua li.lol a.active::after {
+  width: 100%;
+}
+nav ul.menua li.lol a:hover {
+  color: var(--color-accent2);
+}
+
+
+
+
+/* Sección de servicios */
+
+
+.servicio {
+    background-color: #ffffff;
+    padding: 60px 0; 
+    margin-bottom: -150px;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  
+  .servicio .tituloservicio h2 {
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    margin-top: -100px;
+  }
+  .servicio .tituloservicio {
+    margin-top: -100px;
+  }
+  
+  .servicio .fila2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  
+  .cuadroimg2 {
+    width: 210px;
+    height: 390px; /*alto */
+    margin: 40px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Efectos de transición */
+    margin-top: 70px;
+  }
+  
+  .cuadroimg2:hover {
+    transform: translateY(-10px); /* Efecto de levantamiento*/
+  }
+  
+  .cuadroimg2::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(35deg, #3496ffb9, #80ffd528); /* Degradado */
+    opacity: 0.8;
+    transform: scale(0);
+    transition: transform 0.7s ease; /*tiempo de transicion*/
+  }
+  
+  .cuadroimg2:hover::before {
+    transform: scale(2);
+  }
+  
+  .cuadroimg2 i img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+
+  }
+  
+  .cuadroimg2 h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #000000;
+  }
+  
+  .cuadroimg2 p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #000000;
+  }
+  
+  .leermas2 {
+    display: inline-block;
+    margin-top: 180px;
+    margin-left: 100px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .leermas2:hover {
+    background-color: #0056b3;
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+  }
