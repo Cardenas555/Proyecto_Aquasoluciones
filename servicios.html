@@ -1,7 +1,11 @@
+
 <html>
 <head>
    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>AquaSoluciones</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
    <link rel="stylesheet" href="assets/css/servicios.css">
    <link rel="stylesheet" href="assets/css/estilos.css">
    
@@ -23,14 +27,15 @@
            </a>
          </div>
          <div class="head2">
-           <nav>
-             <ul class="menua">
-               <li><a href="index.html">Inicio</a></li>
-               <li><a href="acerca.html">Nosotros</a></li>
-               <li><a href="servicios.html" class="active">Servicios</a></li>
-               <li class="lol"><a href="iniciar_sesion.php">Ingresar</a></li>
-             </ul>
-           </nav> 
+            <button class="menu-togglea" id="menu-togglea"><i class="fas fa-bars"></i></button>
+            <nav>
+               <ul class="menua">
+                  <li><a href="index.html">Inicio</a></li>
+                  <li><a href="acerca.html">Nosotros</a></li>
+                  <li><a href="servicios.html" class="active">Servicios</a></li>
+                  <li class="lol"><a href="iniciar_sesion.php">Ingresar</a></li>
+               </ul>
+            </nav> 
          </div>
          <div class="head3">
            <a href="index.html" class="logo2">
@@ -87,16 +92,14 @@
     </div>
  </div>
 
-
-
-  <footer>
+   <footer>
     <div class="contenido">
       <div class="redes_sociales">
         <h3>Redes Sociales</h3>
         <ul class="iconos_redes">
-         <li><a target = "_blank"><i class="fab fa-facebook-f"></i></a></li>
-         <li><a target = "_blank">  <i class="fab fa-twitter"></i></a></li>
-         <li><a target = "_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a  target = "_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a target = "_blank">  <i class="fab fa-twitter"></i></a></li>
+          <li><a target = "_blank"><i class="fab fa-instagram"></i></a></li>
         </ul>
         <p class="p1fo">Adjuntamos las redes
           sociales para que
@@ -138,5 +141,13 @@
     </div>
   </footer>
 
-</body>
+   <script>
+      const toggleBtn = document.getElementById('menu-togglea');
+      const menu = document.querySelector('.menua');
+
+      toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('show');
+      });
+  </script>
+  </body>
 </html>
