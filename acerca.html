@@ -1,133 +1,355 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaSoluciones</title>
-    <link rel="stylesheet" href="assets/css/acerca.css">
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="assets/js/abririmg.js"></script>
-    <script src="assets/js/dise.js"></script>
-</head>
+/* Importa tipografía desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
-<body>
-    <div class="Cargarpag">
-        <div class="cargar"><img src="assets/imagenes/loading.gif" alt="#"/></div>
-     </div>
-
-     <header class="headera">
-      <div class="cuadrologoa">
-        <div class="head1">
-          <a href="index.html" class="logoa">
-            <img src="assets/imagenes/logo2.png" alt="Logo AquaSoluciones">
-          </a>
-        </div>
-        <div class="head2">
-          <nav>
-            <ul class="menua">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="acerca.html" class="active">Nosotros</a></li>
-              <li><a href="servicios.html">Servicios</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="head3">
-          <a href="index.html" class="logo2">
-            <img src="assets/imagenes/banner1.jpeg" alt="Logo AquaSoluciones">
-          </a>
-        </div>
-      </div>
-    </header>
-
-  <div id="separador"></div>
-
-  <div class = "acercade">
-    <div class = "contenedor-izq">
-        <div class = "fila-a d_flex">
-            <div class = "col-md-8 pad_izq">
-                <section class="contenedor-acercade">
-                    <div id="carrusel2" class="carrusel">
-                    <div class="apartado-acerca">
-                        <img src ="assets/imagenes/mision.png" alt="#" />
-                    </div>  
-                    <div class="apartado-acerca">                        
-                        <img src ="assets/imagenes/vision.png" alt="#" />
-                    </div> 
-                    <div class="apartado-acerca">
-                        <img src ="assets/imagenes/politicas.png" alt="#" />
-                    </div>
-                    <div class="apartado-acerca">
-                        <img src ="assets/imagenes/objetivos.png" alt="#" />
-                    </div>
-                    </div>
-                </section>
-            </div>
-            <div class = "col-md-4">
-                <div class = "titulo">           
-                    <h2 id="estiloh3">&emsp;&emsp;Conoce sobre nosotros </h2>
-                    <br>
-                    <button class="anterior-acerca">&#8249;</button>
-                    <button class="siguiente-acerca">&#8250;</button>
-
-                    </div>
-                </div>
-        </div>    
-        
-        </div>
-    </div>
+:root {
+  --color-accent: #007CF0;
+  --font-base: 'Montserrat', sans-serif;
+  --color-accent2: #e81616;
+}
 
 
-  <br><br><br><br><br><br><br>
+/* HEADER */
 
-  <footer>
-    <div class="contenido">
-      <div class="redes_sociales">
-        <h3>Redes Sociales</h3>
-        <ul class="iconos_redes">
-          <li><a  target = "_blank"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a target = "_blank">  <i class="fab fa-twitter"></i></a></li>
-          <li><a target = "_blank"><i class="fab fa-instagram"></i></a></li>
-        </ul>
-        <p class="p1fo">Adjuntamos las redes
-          sociales para que
-          puedan hacer un mejor
-          seguimientos de nuestras
-          actividades y nuestros
-          anuncions importantes.
-       </p>
-      </div>
-      <div class="observacion">
-        <h3>Observación</h3>
-        <p  class="p1fo">La página resultante
-          surge a partir de la idea
-          de realizar una maqueta relacionada con
-          la página oficial de 
-          la empresa de tratamiento de aguas
-          de la ciudad local y describir sus servicios
-          en la página web. 
-       </p>
-      </div>
-      <div class="informacion">
-        <h3>Información</h3>
-        <ul class="link_menu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="acerca.html">Acerca de nosotros</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
-        </ul>
-      </div>
-      <div class="nuestro_diseno">
-        <h3>Nuestro Diseño</h3>
-        <p  class="p1fo">Para este diseño nos
-          hemos inspirado en plantillas y archivos auxiliares 
-          con los que se venian trabajando
-          en el transcurso de la carrera
-          junto con las investigaciones realizadas
-          para aplicarlas en este proyecto.
-          </p>
-      </div>
-    </div>
-  </footer>
+header.headera {
+  height: 13%;
+  overflow: hidden;
+}
 
-</body>
-</html>
+body {
+  overflow-x: hidden;
+}
+
+/* Contenedor de logo + menú */
+.cuadrologoa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  background: #fff;
+  width: 100%;
+  z-index: 10;
+  position: fixed; /* solo esto, sin absolute */
+}
+
+/* Logo */
+.logoa img {
+  width: 260px;
+  transition: transform 0.3s ease;
+}
+
+.logoa img:hover {
+  transform: scale(1.05);
+}
+
+.logo2 img {
+  width: 178px;
+  margin-right: -45px;
+}
+
+/* Menú */
+.menu-togglea{
+  display: none;
+}
+nav ul.menua {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: 100%;
+  margin-top: 20px;
+}
+
+nav ul.menua li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  position: relative;
+  margin-top: 50px;
+  transition: color 0.3s ease;
+}
+
+nav ul.menua li a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+nav ul.menua li a:hover::after,
+nav ul.menua li a.active::after {
+  width: 100%;
+}
+
+nav ul.menua li a:hover {
+  color: var(--color-accent);
+}
+
+nav ul.menua li.lol a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3B83BD;
+  position: relative;
+  margin-top: 50px;
+  transition: color 0.3s ease;
+}
+/* Acerca de Nosotros */
+
+.acerca-de-nosotros {
+  padding: 80px 30px;
+  background: url('../imagenes/dark.jpg'); /* Fondo visual del diseño anterior */
+  background-size: cover;
+  background-position: center;
+}
+
+.acerca-wrapper {
+  display: flex;
+}
+
+.carrusel-acerca{-ms-flex:0 0 66.666667%;
+    flex:0 0 66.666667%;
+    max-width:66.666667%}
+
+.info-acerca{-ms-flex:0 0 33.333333%;
+    flex:0 0 33.333333%;
+    max-width:33.333333%}
+
+.carrusel-acerca, .info-acerca{position:relative;
+    width:100%;
+    min-height:1px;
+    padding-right:15px;
+    padding-left:15px;
+  }
+
+.item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* evita que imágenes grandes se desborden */
+  flex-shrink: 0;
+}
+
+.item img {
+  width: 100%;
+  max-width: 700px; /* evita que se agrande demasiado en pantallas medianas */
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.info-acerca1{
+  display: none;
+}
+.info-acerca {
+  max-width: 400px;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-acerca h2 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #001d4a;
+  margin-bottom: 2rem;
+  font-family:"Homer Simpson UI";
+  transition: transform 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-left: -35%;
+  text-shadow:  0 0 7px #4e86ff, 0 0 30px #4e86ff;
+}
+.info-acerca h2:hover {
+  transform: scale(1.1); /* Aumentar escala al pasar el cursor */
+}
+
+.botones-carrusel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: -10%;
+  margin-left: -35%;
+}
+
+.anterior-acerca,
+.siguiente-acerca {
+  background: #5e5e5e;
+  color: white;
+  border: none;
+  font-size: 28px;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.anterior-acerca:hover,
+.siguiente-acerca:hover {
+  background: #1659e8;
+}
+
+
+@media screen and (max-width: 768px) {
+  header.headera {
+    height: 25%;
+    width: 100%;
+    padding: 0%;
+  }
+
+  .menu-togglea {
+    display: block;
+    position: initial;
+    font-size: 20px;
+    padding: 8px 10px;
+    background: #ffffff;
+    border: 2px solid #007CF0;
+    border-radius: 8px;
+    color: #007CF0;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .head2 nav ul.menua {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 55px;
+    right: 30%;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    align-items: center;
+  }
+  .head2 nav ul.menua.show {
+    display: flex;
+  }
+
+  .head1,
+  .head2,
+  .head3 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .head1 {
+    justify-content: center;
+    margin-left: 10px;
+  }
+
+  .head2 {
+    height: 50px;
+    justify-content: center;
+  }
+
+  .head3 {
+    justify-content: end;
+    height: 100%;
+  }
+
+  .head2 nav ul.menua li {
+    text-align: right;
+  }
+
+  .head2 nav ul.menua li a {
+    font-size: 14px;
+  }
+
+  .head2 nav ul.menua.show {
+    display: flex;
+  }
+
+  .cuadrologoa {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    height: 25%;
+  }
+
+  .logoa img {  
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .logo2 img {
+    width: 100px;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .acerca-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .info-acerca1{
+    display: block;
+    text-align: center;
+  }
+  .info-acerca1 h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #001d4a;
+    margin-bottom: 2rem;
+    font-family:"Homer Simpson UI";
+    transition: transform 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow:  0 0 7px #4e86ff, 0 0 30px #4e86ff;
+  }
+  .info-acerca1 h2:hover {
+    transform: scale(1.1); /* Aumentar escala al pasar el cursor */
+  }
+
+  .info-acerca h2 {
+    display: none;
+  }
+
+  .botones-carrusel {
+    flex-direction: row;
+    justify-content: center;
+    display: none;
+  }
+
+  .item img {
+    border-radius: 8px;
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  header.headera {
+    height: 8%;
+    width: 100%;
+    padding: 0%;
+  }
+  .cuadrologoa {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px;
+    height: 8%;
+  }
+}
