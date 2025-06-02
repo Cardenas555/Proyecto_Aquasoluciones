@@ -1,0 +1,278 @@
+<?php
+require '/var/www/html/conexionBD/conexion.php';
+require '/var/www/html/controller/auth.php';
+// Crear una instancia de la clase ConexionBD
+$conexionBD = new ConexionBD();
+$dbconn = $conexionBD->conexionBD();
+
+if (!$dbconn) {
+    echo "ERROR, NO SE PUDO CONECTAR A LA BASE DE DATOS";
+} else {
+    switch ($opcion) {
+        case 1:
+            echo '<form id="miFormulario" action="" method="post">';
+            echo '<h2 class="text-2xl font-bold text-black-600 mb-4">Consultar datos de la tabla Empleados</h2>';
+            echo '<br>';
+        
+            // Crear una instancia de la clase ConexionBD
+            $conexionBD = new ConexionBD();
+            $dbconn = $conexionBD->conexionBD(); // Obtener la conexión
+        
+            if (!$dbconn) {
+                echo "ERROR, NO SE PUDO CONECTAR A LA BASE DE DATOS";
+            } else {
+                // Consulta para obtener los IDs y apellidos registrados
+                $sql = "SELECT id, nombre, apellido FROM empleado";
+                $stmt = $dbconn->prepare($sql); // Preparar la consulta
+        
+                if (!$stmt->execute()) {
+                    echo "Error al obtener los datos.";
+                } else {
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtener todos los resultados
+                    echo '<label>Seleccione el ID del registro a consultar: </label>';
+                    echo '<select name="id_empleado" class="block mx-auto w-1/2 bg-gray-100 border border-gray-300 text-gray-700 py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>';
+                    echo '<option value="">Seleccione...</option>';
+                    foreach ($result as $row) {
+                        echo '<option value="' . $row['id'] . '">' . $row['id'] . ' - ' . $row['nombre'] . ' ' . $row['apellido'] . '</option>';
+                    }
+                    echo '</select>';
+                }
+            }
+        
+            echo '<br><br>';
+            echo '<input type="submit" value="Consultar" name="consultar1">';
+            echo '</form>';
+            break;
+        case 2:
+            echo '<form id="miFormulario" action="" method="post">';
+            echo '<h2 class="text-2xl font-bold text-black-600 mb-4">Consultar datos de la tabla Clientes</h2>';
+            echo '<br>';
+            // Crear una instancia de la clase ConexionBD
+            $conexionBD = new ConexionBD();
+            $dbconn = $conexionBD->conexionBD(); // Obtener la conexión
+
+            if (!$dbconn) {
+                echo "ERROR, NO SE PUDO CONECTAR A LA BASE DE DATOS";
+            } else {
+                // Consulta para obtener los IDs y nombres registrados
+                $sql = "SELECT id, nombre_completo FROM cliente";
+                $stmt = $dbconn->prepare($sql); // Preparar la consulta
+                if (!$stmt->execute()) {
+                    echo "Error al obtener los datos.";
+                } else {
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtener todos los resultados
+                    echo '<label>Seleccione el ID del registro a consultar: </label>';
+                    echo '<select name="id_cliente" class="block mx-auto w-1/2 bg-gray-100 border border-gray-300 text-gray-700 py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>';
+                    echo '<option value="">Seleccione...</option>';
+                    foreach ($result as $row) {
+                        echo '<option value="' . $row['id'] . '">' . $row['id'] . ' - ' . $row['nombre_completo'] . '</option>';
+                    }
+                    echo '</select>';
+                }
+            }
+
+            echo '<br><br>';
+            echo '<input type="submit" value="Consultar" name="consultar2">';
+            echo '</form>';
+            break;
+            
+        case 9:
+            echo '<form id="miFormulario" action="" method="post">';
+            echo '<h2 class="text-2xl font-bold text-black-600 mb-4">Consultar datos de la tabla Reportes de Servicio</h2>';
+            echo '<br>';
+            // Crear una instancia de la clase ConexionBD
+            $conexionBD = new ConexionBD();
+            $dbconn = $conexionBD->conexionBD(); // Obtener la conexión
+
+            if (!$dbconn) {
+                echo "ERROR, NO SE PUDO CONECTAR A LA BASE DE DATOS";
+            } else {
+                // Consulta para obtener los IDs y clientes registrados
+                $sql = "SELECT id_reporte, id_cliente FROM reporte_servicio";
+                $stmt = $dbconn->prepare($sql); // Preparar la consulta
+        
+                if (!$stmt->execute()) {
+                    echo "Error al obtener los datos.";
+                } else {
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtener todos los resultados
+                    echo '<label>Seleccione el ID del reporte a consultar: </label>';
+                    echo '<select name="id_reporte" class="block mx-auto w-1/2 bg-gray-100 border border-gray-300 text-gray-700 py-2 px-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>';
+                    echo '<option value="">Seleccione...</option>';
+                    foreach ($result as $row) {
+                        echo '<option value="' . $row['id_reporte'] . '">' . 'ID: ' . $row['id_reporte'] . ' - Cliente con ID: ' . $row['id_cliente'] . '</option>';
+                    }
+                    echo '</select>';
+                }
+            }
+        
+            echo '<br><br>';
+            echo '<input type="submit" value="Consultar" name="consultar9">';
+            echo '</form>';
+            break;
+    }        
+    if (isset($_POST['consultar1'])) {
+        $idSeleccionado = isset($_POST['id_empleado']) ? $_POST['id_empleado'] : null;
+    
+        if ($idSeleccionado) {
+            // Crear una instancia de la clase ConexionBD
+            $conexionBD = new ConexionBD();
+            $dbconn = $conexionBD->conexionBD(); // Obtener la conexión
+    
+            if (!$dbconn) {
+                echo "ERROR, NO SE PUDO CONECTAR A LA BASE DE DATOS";
+            } else {
+                // Consulta para obtener los detalles del registro seleccionado
+                $sql = "SELECT * FROM empleado WHERE id = :id";
+                $stmt = $dbconn->prepare($sql); // Preparar la consulta
+    
+                // Vincular el parámetro
+                $stmt->bindParam(':id', $idSeleccionado, PDO::PARAM_INT);
+    
+                if ($stmt->execute() && $stmt->rowCount() > 0) {
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+                    // Mostrar los detalles del registro
+                    echo '<form id="miFormulario" action="" method="post">';
+                    echo '<h2 class="text-xl font-semibold text-center mb-4"> Detalles del Empleado </h2>';
+                    echo '<div class="tabla-scroll">';
+                    echo '<table class="table-auto border-collapse mx-auto w-full max-w-4xl text-sm">';
+                    echo '<thead>';
+                    echo '<tr style="background-color: #3498db; color: white;">';
+                    echo '<th class="px-2 py-1">ID</th>';
+                    echo '<th class="px-2 py-1">Cédula</th>';
+                    echo '<th class="px-2 py-1">Nombre</th>';
+                    echo '<th class="px-2 py-1">Apellido</th>';
+                    echo '<th class="px-2 py-1">Celular</th>';
+                    echo '<th class="px-2 py-1">Email</th>';
+                    echo '<th class="px-2 py-1">Cargo</th>';
+                    echo '</tr>';
+                    echo '</thead>';
+                    echo '<tbody>';
+                    echo '<tr class="odd:bg-gray-100 even:bg-white">';
+                    echo '<td class="px-2 py-1 text-center" style="overflow-wrap: break-word;">' . $row['id'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center" style="overflow-wrap: break-word;">' . $row['cedula'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center" style="overflow-wrap: break-word;">' . $row['nombre'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center" style="overflow-wrap: break-word;">' . $row['apellido'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center" style="overflow-wrap: break-word;">' . $row['celular'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center" style="overflow-wrap: break-word;">' . $row['email'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center" style="overflow-wrap: break-word;">' . $row['cargo'] . '</td>';
+                    echo '</tr>';
+                    echo '</tbody>';
+                    echo '</table>';
+                    echo '</div>';
+                    echo '</form>';
+                } else {
+                    echo "No se encontró el registro.";
+                }
+            }
+        } else {
+            echo "Por favor, seleccione un registro válido.";
+        }
+    }             
+             
+    else if (isset($_POST['consultar2'])) {
+        $idSeleccionado = isset($_POST['id_cliente']) ? $_POST['id_cliente'] : null;
+    
+        if ($idSeleccionado) {
+            // Crear una instancia de la clase ConexionBD
+            $conexionBD = new ConexionBD();
+            $dbconn = $conexionBD->conexionBD(); // Obtener la conexión
+    
+            if (!$dbconn) {
+                echo "ERROR, NO SE PUDO CONECTAR A LA BASE DE DATOS";
+            } else {
+                // Consulta para obtener los detalles del registro seleccionado
+                $sql = "SELECT * FROM cliente WHERE id = :id";
+                $stmt = $dbconn->prepare($sql); // Preparar la consulta
+    
+                // Vincular el parámetro
+                $stmt->bindParam(':id', $idSeleccionado, PDO::PARAM_INT);
+    
+                if ($stmt->execute() && $stmt->rowCount() > 0) {
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+                    // Mostrar los detalles del registro
+                    echo '<form id="miFormulario" action="" method="post">';
+                    echo '<h2 class="text-xl font-semibold text-center mb-4"> Detalles del Cliente </h2>';
+                    echo '<div class="tabla-scroll">';
+                    echo '<table class="table-auto border-collapse mx-auto w-full max-w-4xl text-sm">';
+                    echo '<tr style="background-color: #3498db; color: white;">';
+                    echo '<th class="px-2 py-1">ID</th>';
+                    echo '<th class="px-2 py-1">Cédula</th>';
+                    echo '<th class="px-2 py-1">Nombre Completo</th>';
+                    echo '<th class="px-2 py-1">Dirección</th>';
+                    echo '<th class="px-2 py-1">Celular</th>';
+                    echo '</tr>';
+                    echo '<tr class="odd:bg-gray-100 even:bg-white">';
+                    echo '<td class="px-2 py-1 text-center">' . $row['id'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['cedula'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['nombre_completo'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['direccion'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['celular'] . '</td>';
+                    echo '</tr>';
+                    echo '</table>';
+                    echo '</div>';
+                    echo '</form>';
+                } else {
+                    echo "No se encontró el registro.";
+                }
+            }
+        } else {
+            echo "Por favor, seleccione un registro válido.";
+        }
+    }
+    if (isset($_POST['consultar9'])) {
+        $idSeleccionado = isset($_POST['id_reporte']) ? $_POST['id_reporte'] : null;
+
+        if ($idSeleccionado) {
+            // Crear una instancia de la clase ConexionBD
+            $conexionBD = new ConexionBD();
+            $dbconn = $conexionBD->conexionBD(); // Obtener la conexión
+
+            if (!$dbconn) {
+                echo "ERROR, NO SE PUDO CONECTAR A LA BASE DE DATOS";
+            } else {
+                // Consulta para obtener los detalles del reporte seleccionado
+                $sql = "SELECT rs.*, c.nombre_completo FROM reporte_servicio rs INNER JOIN cliente c ON rs.id_cliente = c.id WHERE rs.id_reporte = :id";
+                $stmt = $dbconn->prepare($sql); // Preparar la consulta
+
+                $stmt->bindParam(':id', $idSeleccionado, PDO::PARAM_INT);
+
+                if ($stmt->execute() && $stmt->rowCount() > 0) {
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    // Mostrar los detalles del reporte
+                    echo '<form id="miFormulario" action="" method="post">';
+                    echo '<h2 class="text-xl font-semibold text-center mb-4"> Detalles del Reporte de Servicio </h2>';
+                    echo '<div class="tabla-scroll">';
+                    echo '<table class="table-auto border-collapse mx-auto w-full max-w-4xl text-sm">';
+                    echo '<tr style="background-color: #3498db; color: white;">';
+                    echo '<th class="px-2 py-1">ID Reporte</th>';
+                    echo '<th class="px-2 py-1">ID Cliente</th>';
+                    echo '<th class="px-2 py-1">Problema Reportado</th>';
+                    echo '<th class="px-2 py-1">Fecha de Reporte</th>';
+                    echo '<th class="px-2 py-1">Estado</th>';
+                    echo '</tr>';
+                    echo '<tr class="odd:bg-gray-100 even:bg-white">';
+                    echo '<td class="px-2 py-1 text-center">' . $row['id_reporte'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['id_cliente'] . ' - ' . htmlspecialchars($row['nombre_completo']) . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['problema'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['fecha_reporte'] . '</td>';
+                    echo '<td class="px-2 py-1 text-center">' . $row['estado'] . '</td>';
+                    echo '</tr>';
+                    echo '</table>';
+                    echo '</div>';
+                    echo '</form>';
+                } else {
+                    echo "No se encontró el registro.";
+                }
+            }
+        } else {
+            echo "Por favor, seleccione un registro válido.";
+        }
+    }
+}
+
+?>
+
+<link rel="stylesheet" href="assets/css/disenore.css">
