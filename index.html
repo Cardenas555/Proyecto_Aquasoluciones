@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="assets/js/abririmg.js"></script>
-
+  <link rel="stylesheet" href="assets/css/acerca.css">
 </head>
 
 <body>
@@ -22,6 +22,9 @@
           <img src="assets/imagenes/logo2.png" alt="Logo AquaSoluciones">
         </a>
       </div>
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="head2">
         <nav>
           <ul class="menu">
@@ -32,6 +35,8 @@
         </nav>
       </div>
     </div>
+
+  </header>
     <section class="contenedor">
       <div class="hero">
         <div class="carrusel">
@@ -57,8 +62,6 @@
         <button class="siguiente">&#8250;</button>
       </div>
     </section>
-  </header>
-
 
   <!-- acerca de nosotros -->
   <div class="contenedor2">
@@ -103,7 +106,7 @@
   <div class="contenedor3">
     <div class="info-contacto">
         <h2 id="contactos">Contáctanos</h2>
-        <form action="/enviar_formulario" method="post">
+        <form action="/enviar_formulario" method="post" class="formulario">
 
             <input placeholder="Nombre" type="text" id="nombre" name="nombre" required>
 
@@ -112,8 +115,9 @@
             <input placeholder="Telefono celular" type="tel" id="celular" name="celular" required>
 
             <textarea placeholder="Digite su mensaje" id="mensaje" name="mensaje" required></textarea>
+            <input type="enviar" value="Enviar">
         </form>
-        <input type="enviar" value="Enviar">
+
     </div>
     <div class="mapa">
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15957.612052181728!2d-77.6641593!3d0.8267032!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e29690664b5df21%3A0xd3f52e5a3f11a7be!2sempobando!5e0!3m2!1ses!2sco!4v1700519807305!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -152,7 +156,7 @@
         <h3>Información</h3>
         <ul class="link_menu">
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="views/acerca.html">Acerca de nosotros</a></li>
+          <li><a href="acerca.html">Acerca de nosotros</a></li>
           <li><a href="servicios.html">Servicios</a></li>
         </ul>
       </div>
@@ -169,5 +173,11 @@
     </div>
   </footer>
   <script src="assets/js/dise.js"></script>
-</body>
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('show');
+    });
+  </script>
+  </body>
 </html>
